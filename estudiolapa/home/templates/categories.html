@@ -1,0 +1,60 @@
+<div class="section translucent-bg pb-clear categories" style="background-image: url({{ backgrounds.bg_fazemos }})">
+    <div class="container object-non-visible" data-animation-effect="fadeIn">
+        <h1 id="services" class="title text-center">O que <span>fazemos?</span></h1>
+        <div class="space"></div>
+        <div class="row">
+        {% for category in categories %}
+        <div class="col-md-4" {% cycle 'style="clear:both;"' '' '' %}>
+            <div class="media testimonial">
+                <div class="media-body">
+                    <h3 class="media-heading">{{ category.title }}</h3>
+                    <div class="isotope-item web-design">
+                        <div class="image-box">
+                            <div class="overlay-container">
+                                <img src="{{ category.resized_image.url }}" alt="">
+                                <a class="overlay" data-toggle="modal" data-target="#category-{{ category.slug }}">
+                                    <i class="fa fa-search-plus"></i>
+                                    <span>{{ category.title }} - Clique pra detalhes</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="category-{{ category.slug }}" tabindex="-1" role="dialog" aria-labelledby="category-{{ category.slug }}-label" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="category-{{ category.slug }}-label">{{ category.title }}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h3>{{ category.title }}</h3>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p>{{ category.description }}</p>
+                                                {% with category.categoryphoto_set.all as photos %}
+                                                    {% include "photo_gallery.html" %}
+                                                {% endwith %}
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="{{ category.resized_image.url }}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Fechar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal end -->
+                    </div>
+                    <p>{{ category.description|truncatewords:20 }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor%}
+        </div>
+        <div class="row">
+        </div>
+    </div>
+</div>

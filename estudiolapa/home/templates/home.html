@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Estúdio Lapa | Fotografia, Cinegrafia, Eventos, 360, Drones</title>
+        <meta name="description" content="Estúdio Lapa | Fotografia, Cinegrafia, Eventos, 360, Drones">
+        <meta name="author" content="ricardodani.com">
+        <meta name="google-site-verification" content="tdmS6PthHLbGKXR9HZt08wCR8Zc_eWcrN87N0r-Q-cU" />
+        <!-- Mobile Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/static/images/favicon.ico">
+
+        <!-- Web Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+        <!-- Font Awesome CSS -->
+        <link href="/static/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+        <!-- Plugins -->
+        <link href="/static/css/animations.css" rel="stylesheet">
+
+        <!-- Worthy core CSS file -->
+        <link href="/static/css/style.css" rel="stylesheet">
+
+        <!-- Bootstrap Image Gallery -->
+        <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+        <link rel="stylesheet" href="/static/css/bootstrap-image-gallery.min.css">
+    </head>
+
+    <body class="no-trans">
+        <!-- scrollToTop -->
+        <!-- ================ -->
+        <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+        {% include "gallery.html" %}
+        {% include "header.html" %}
+        {% include "banner.html" %}
+        {% include "about.html" %}
+        {% include "categories.html" %}
+        {% include "works.html" %}
+        {% include "phrase.html" %}
+        {% include "footer.html" %}
+        {% if messages %}
+          <script >
+          {% for message in messages %}
+            alert("{{ message }}");
+          {% endfor %}
+          </script>
+        {% endif %}
+        <!-- JavaScript files placed at the end of the document so the pages load faster
+        ================================================== -->
+        <!-- Jquery and Bootstap core js files -->
+        <script type="text/javascript" src="/static/plugins/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Modernizr javascript -->
+        <script type="text/javascript" src="/static/plugins/modernizr.js"></script>
+
+        <!-- Isotope javascript -->
+        <script type="text/javascript" src="/static/plugins/isotope/isotope.pkgd.min.js"></script>
+
+        <!-- Backstretch javascript -->
+        <script type="text/javascript" src="/static/plugins/jquery.backstretch.min.js"></script>
+
+        <!-- Appear javascript -->
+        <script type="text/javascript" src="/static/plugins/jquery.appear.js"></script>
+
+        <!-- Initialization of Plugins -->
+        <script type="text/javascript" src="/static/js/template.js"></script>
+
+        <!-- Custom Scripts -->
+        <script type="text/javascript" src="/static/js/custom.js"></script>
+
+        <!-- Bootstrap Image Gallery -->
+        <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+
+    </body>
+</html>
+

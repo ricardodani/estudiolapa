@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+
+    nginx:
+        build: './nginx/production'
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - publicdata:/var/www
+        depends_on:
+            - estudiolapa
+        links:
+            - estudiolapa:estudiolapa
+
+    estudiolapa:
+        build: ./estudiolapa
+        image: estudiolapa
+        ports:
+            - "8000:8000"
+        volumes:
+            - publicdata:/var/www
+            - ./estudiolapa:/usr/src/app
+        links:
+            - postgres:postgres
+
+    redis:
+        image: redis:4.0
+        container_name: redis
+        ports: 
+            - "27017:27017"
+        volumes:
+            - 'redisdata:/data/db'
+
+    postgres:
+        container_name: 'postgres'
+        image: 'postgres:10.3'
+        ports:
+            - '5432:5432'
+        volumes:
+            - 'pgdata:/var/lib/postgresql/data/'
+
+volumes:
+    publicdata:
+    redisdata:
+    pgdata:

@@ -1,0 +1,53 @@
+<div class="col-sm-6 col-md-3 isotope-item {{ work.category.slug }}">
+    <div class="image-box">
+        <div class="overlay-container">
+            <img src="{{ work.resized_image.url }}" alt="">
+            <a class="overlay" data-toggle="modal" data-target="#work-{{ work.slug }}">
+                <i class="fa fa-search-plus"></i>
+                <span>{{ work.category.title }}</span>
+            </a>
+        </div>
+        <a class="btn btn-default btn-block" data-toggle="modal" data-target="#work-{{ work.slug }}">{{ work.title }}</a>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="work-{{ work.slug }}" tabindex="-1" role="dialog" aria-labelledby="project-1-label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+                    <h4 class="modal-title" id="project-1-label">{{ work.title }}</h4>
+                </div>
+                <div class="modal-body">
+                    <h3>{{ work.title }}</h3>
+                    <div class="row">
+                        <div class="col-md-{% if work.youtube_url %}12{% else %}6{% endif %}">
+                            <p>{{ work.description }}</p>
+                            {% if work.youtube_url %}
+                                <iframe width="860" height="515" src="{{ work.youtube_url }}" frameborder="0" allowfullscreen></iframe>
+                            {% elif work.vimeo_url %}
+                                <iframe src="{{ work.vimeo_url }}" width="860" height="515" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+                            {% else %}
+                                {% with work.workphoto_set.all as photos %}
+                                    {% include "photo_gallery.html" %}
+                                {% endwith %}
+                            {% endif %}
+                        </div>
+                        {% if not work.youtube_url  %}
+                        {% if not work.vimeo_url  %}
+
+                        <div class="col-md-6">
+                            <img src="{{ work.resized_image.url }}" alt="">
+                        </div>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+</div>

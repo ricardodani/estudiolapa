@@ -1,0 +1,20 @@
+{% if photos %}
+<h4>Ver galeria</h4>
+<div id="gallery-{{ work.id }}" class="gallery">
+    {% for photo in photos %}
+    <a href="{{ photo.slide_image.url }}" title="{{ photo.title }}">
+        <img src="{{ photo.resized_image.url }}" alt="{{ photo.title }}">
+    </a>
+    {% endfor %}
+</div>
+<script>
+document.getElementById('gallery-{{ work.id }}').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+{% endif %}

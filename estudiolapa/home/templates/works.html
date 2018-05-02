@@ -1,0 +1,33 @@
+<div class="section">
+
+    <div class="container">
+        <h1 id="portfolio" class="title text-center">Trabalhos <span>Realizados</span></h1>
+        <div class="separator"></div>
+        <p class="lead text-center">Um pouco do nosso trabalho, que é feito com muita dedicação e amor a arte e a fotografia.</p>
+        <br>            
+        <div class="row object-non-visible" data-animation-effect="fadeIn">
+            <div class="col-md-12">
+
+                <!-- isotope filters start -->
+                <div class="filters text-center">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="#" data-filter="*">Todos</a></li>
+                        {% for category in categories %}
+                        <li><a href="#" data-filter=".{{ category.slug }}">{{ category.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- isotope filters end -->
+
+                <!-- portfolio items start -->
+                <div class="isotope-container row grid-space-20">
+                    {% for work in works %}
+                        {% include "work.html" %}
+                    {% endfor %}
+                </div>
+                <!-- portfolio items end -->
+            
+            </div>
+        </div>
+    </div>
+</div>
