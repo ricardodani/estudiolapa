@@ -1,0 +1,7 @@
+django_project/media/thumbnails-cache
+.ropeproject
+*.pyc
+*.db
+.ropeproject
+public
+django_project/media/
